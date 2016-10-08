@@ -26,6 +26,7 @@ $array = $stmt->fetchAll();
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>デレステプレイしてますけど！ - aki-memo.net</title>
 <link rel="stylesheet" href="style.css" />
 <link rel="shortcut icon" href="img/favicon.png" type="image/png">
@@ -228,7 +229,7 @@ $array = $stmt->fetchAll();
 <div role="main">
 <p>デレステをどれ位やっているか、<a href="https://deresute.me/" target="_blank">deresute.me</a>さんのjsonをお借りしてグラフ化しています。</p>
 <p><a href="./">簡易表示(１日毎)</a> / <a href="./?hourly">詳細表示(１時間毎)</a></p>
-<img src="https://deresute.me/424570685/medium">
+<img class="banner" src="https://deresute.me/424570685/medium">
   <div id="chartdiv"></div>
 </div>
 <footer role="contentinfo">
