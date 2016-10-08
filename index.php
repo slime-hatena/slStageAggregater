@@ -120,7 +120,7 @@ $array = $stmt->fetchAll();
         "bulletBorderThickness": 1,
         "lineThickness": 3,
         "hideBulletsCount": 30,
-        "title": "アルバム達成数",
+        "title": "アルバム登録数",
         "valueField": "album",
         "fillAlphas": 0
       }, {
@@ -228,6 +228,7 @@ $array = $stmt->fetchAll();
 <div role="main">
 <p>デレステをどれ位やっているか、<a href="https://deresute.me/" target="_blank">deresute.me</a>さんのjsonをお借りしてグラフ化しています。</p>
 <p><a href="./">簡易表示(１日毎)</a> / <a href="./?hourly">詳細表示(１時間毎)</a></p>
+<img src="https://deresute.me/424570685/medium">
   <div id="chartdiv"></div>
 </div>
 <footer role="contentinfo">

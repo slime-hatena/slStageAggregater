@@ -2,7 +2,7 @@
 // ツイートする用のファイル getUserDataでrequire_onceするためのファイル 一応単体でも叩ける。
 
 require_once dirname ( __FILE__ ) . "/../../undefined/NonoMorikubo.php";
-require_once 'userSetting.php';
+require_once ('userSetting.php');
 
 require __DIR__ . '/vendor/autoload.php';
 use mpyw\Co\Co;
@@ -40,8 +40,8 @@ $url = "http://svr.aki-memo.net/slStageAggregater/";
 $tweetStr = "#デレステプレイしてますけど
 " . $array[0]['time_str'] . " (vs" . $array[1]['time_str'] . ")
 
-レベル：" . $array[0]['level'] . ' (+' . ($array[0]['prp'] - $array[1]['prp']) . ")
-ファン数：" . number_format($array[0]['fan']) . ' (+' . number_format($array[0]['level'] - $array[1]['level']) . ')
+レベル：" . $array[0]['level'] . ' (+' . ($array[0]['level'] - $array[1]['level']) . ")
+ファン数：" . number_format($array[0]['fan']) . ' (+' . number_format($array[0]['fan'] - $array[1]['fan']) . ')
 詳細：' . $url;
 
 
