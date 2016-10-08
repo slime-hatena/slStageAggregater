@@ -1,5 +1,5 @@
 <?php
-require_once 'userSetting.php';
+require_once ('userSetting.php');
 
 // データベースからデータを取得
 require_once $_SERVER['DOCUMENT_ROOT'] . "/../undefined/DSN.php";
@@ -11,9 +11,12 @@ try {
     exit ( 'connection unsuccess' . $e->getMessage () );
 }
 
-$stmt = $pdo->query("SELECT * FROM slstage_aggregater ORDER BY time ASC");
+if( array_key_exists( 'hourly',$_GET )) {
+    $stmt = $pdo->query("SELECT * FROM slstage_aggregater ORDER BY time ASC");
+}else{
+    $stmt = $pdo->query("SELECT * FROM slstage_aggregater WHERE time_str LIKE '%00:__' ORDER BY time ASC");  
+}
 $array = $stmt->fetchAll();
-
 
 ?>
 
@@ -25,7 +28,7 @@ $array = $stmt->fetchAll();
 <meta charset="UTF-8" />
 <title>デレステプレイしてますけど！ - aki-memo.net</title>
 <link rel="stylesheet" href="style.css" />
-<link rel="shortcut icon" href="favicon.png" type="image/png">
+<link rel="shortcut icon" href="img/favicon.png" type="image/png">
 
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
@@ -210,7 +213,7 @@ $array = $stmt->fetchAll();
     }
   </script>
 
-
+<?php include_once("analytics.php") ?>
 
 
 </head>
@@ -224,6 +227,7 @@ $array = $stmt->fetchAll();
 </nav>
 <div role="main">
 <p>デレステをどれ位やっているか、<a href="https://deresute.me/" target="_blank">deresute.me</a>さんのjsonをお借りしてグラフ化しています。</p>
+<p><a href="./">簡易表示(１日毎)</a> / <a href="./?hourly">詳細表示(１時間毎)</a></p>
   <div id="chartdiv"></div>
 </div>
 <footer role="contentinfo">
@@ -232,9 +236,8 @@ $array = $stmt->fetchAll();
 ©BNEI / PROJECT CINDERELLA
 </p>
 <p>
-<a class="f" href="https://github.com/Slime-hatena/slStageAggregater" target="_blank">slStageAggregater</a> under the MIT license by <a class="f" href="https://twitter.com/Slime_hatena" target="_blank">Slime_hatena</a>
-</p>
-
+<a class="f" href="https://github.com/Slime-hatena/slStageAggregater" target="_blank">slStageAggregater</a> is released under the MIT License by <a class="f" href="https://twitter.com/Slime_hatena" target="_blank">Slime_hatena</a><br>
+<a class="f" href="https://github.com/mpyw/cowitter" target="_blank">cowitter</a> under the MIT license by <a class="f" href="https://github.com/mpyw" target="_blank">mpyw</a>
 </p>
 </footer>
 </body>

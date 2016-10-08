@@ -4,7 +4,7 @@ deresute.meさんのjsonを拝借してユーザーデータを取得する。
 cronでいい感じの感覚で叩くとデータベースに保存される。
 */
 
-require_once userSetting.php;
+require_once ("userSetting.php");
 
 
 
@@ -57,4 +57,10 @@ if ($res) {
    printLog("insert成功\n");
 }else{
    printLog("insert失敗\n");
+}
+
+// 指定時間にツイートする処理
+if (date("H") == 0){
+    echo "０時なので実行";
+    include_once('tweet.php');
 }
